@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ถึงคนพิเศษของเค้า ❤️</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Arial", sans-serif;
+    overflow: hidden;
+    background: #120018;
+    color: white;
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+
+.background {
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 20%, #ff4f9a55, transparent 30%),
+        radial-gradient(circle at 80% 80%, #a600ff55, transparent 30%),
+        linear-gradient(135deg, #120018, #2b002f, #16001f);
+
+    overflow: hidden;
+}
+
+/* ดาว */
+
+.star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+    from {
+        opacity: .2;
+        transform: scale(.5);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+}
+
+/* =========================
+   OPEN SCREEN
+========================= */
+
+.start-screen {
+    position: fixed;
+    inset: 0;
+    background: rgba(10,0,15,.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    transition: 1s;
+}
+
+.start-box {
+    text-align: center;
+}
+
+.start-heart {
+    font-size: 100px;
+    animation: heartbeat 1s infinite;
+}
+
+@keyframes heartbeat {
+
+    0%,100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.25);
+    }
+}
+
+.start-box h1 {
+    margin: 20px;
+    color: #ff80b5;
+}
+
+.start-btn {
+    padding: 15px 40px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(45deg,#ff4081,#ff8ab8);
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 0 30px #ff4081;
+}
+
+/* =========================
+   MAIN CARD
+========================= */
+
+.container {
+    position: relative;
+    z-index: 5;
+    width: 90%;
+    max-width: 650px;
+    height: 85vh;
+    margin: auto;
+    top: 7vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+
+    width: 100%;
+    padding: 40px 25px;
+
+    text-align: center;
+
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.2);
+
+    backdrop-filter: blur(20px);
+
+    border-radius: 35px;
+
+    box-shadow:
+        0 0 50px rgba(255,0,120,.2),
+        inset 0 0 30px rgba(255,255,255,.03);
+
+    animation: appear 1.5s;
+}
+
+@keyframes appear {
+
+    from {
+        opacity: 0;
+        transform: scale(.7) translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.big-heart {
+
+    font-size: 100px;
+
+    animation:
+        heartbeat 1.2s infinite,
+        glow 2s infinite alternate;
+}
+
+@keyframes glow {
+
+    from {
+        filter: drop-shadow(0 0 5px #ff4081);
+    }
+
+    to {
+        filter: drop-shadow(0 0 30px #ff4081);
+    }
+}
+
+h1 {
+    color: #ff8fba;
+    font-size: 36px;
+    margin: 15px;
+}
+
+#typing {
+
+    min-height: 80px;
+
+    font-size: 20px;
+
+    line-height: 1.8;
+
+    color: #ffe6f0;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.buttons {
+
+    margin-top: 25px;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    position: relative;
+}
+
+button {
+
+    border: none;
+
+    padding: 14px 28px;
+
+    border-radius: 50px;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.yes {
+
+    background: #ff4081;
+
+    color: white;
+
+    box-shadow: 0 0 20px #ff4081;
+}
+
+.yes:hover {
+
+    transform: scale(1.15);
+
+    box-shadow: 0 0 40px #ff4081;
+}
+
+.no {
+
+    background: #555;
+
+    color: white;
+
+    position: relative;
+}
+
+/* =========================
+   LOVE MESSAGE
+========================= */
+
+#loveMessage {
+
+    display: none;
+
+    margin-top: 30px;
+
+    animation: loveAppear 1s;
+}
+
+@keyframes loveAppear {
+
+    from {
+        opacity: 0;
+        transform: scale(.5);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+#loveMessage h2 {
+
+    color: #ff7bab;
+
+    font-size: 32px;
+
+    margin-bottom: 15px;
+}
+
+.love-text {
+
+    font-size: 19px;
+
+    line-height: 1.8;
+}
+
+/* =========================
+   LOVE COUNTER
+========================= */
+
+.counter {
+
+    margin-top: 25px;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+}
+
+.counter-box {
+
+    background: rgba(255,255,255,.1);
+
+    padding: 12px 18px;
+
+    border-radius: 15px;
+
+    min-width: 90px;
+}
+
+.counter-box span {
+
+    display: block;
+
+    font-size: 25px;
+
+    color: #ff80ad;
+}
+
+.counter-box small {
+
+    color: #ddd;
+}
+
+/* =========================
+   FLOATING HEART
+========================= */
+
+.floating-heart {
+
+    position: fixed;
+
+    bottom: -50px;
+
+    pointer-events: none;
+
+    z-index: 20;
+
+    animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+
+    0% {
+
+        transform:
+            translateY(0)
+            rotate(0deg)
+            scale(.5);
+
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+
+        transform:
+            translateY(-110vh)
+            rotate(360deg)
+            scale(1.5);
+
+        opacity: 0;
+    }
+}
+
+/* =========================
+   EXPLOSION
+========================= */
+
+.explosion {
+
+    position: fixed;
+
+    pointer-events: none;
+
+    font-size: 30px;
+
+    z-index: 50;
+
+    animation: explode 1s forwards;
+}
+
+@keyframes explode {
+
+    from {
+
+        transform:
+            translate(0,0)
+            scale(.5);
+
+        opacity: 1;
+    }
+
+    to {
+
+        transform:
+            translate(var(--x),var(--y))
+            scale(1.5);
+
+        opacity: 0;
+    }
+}
+
+/* =========================
+   SECRET BUTTON
+========================= */
+
+.secret {
+
+    margin-top: 25px;
+
+    font-size: 14px;
+
+    color: #aaa;
+
+    cursor: pointer;
+}
+
+.secret:hover {
+
+    color: #ff80ad;
+}
+
+#secretMessage {
+
+    display: none;
+
+    margin-top: 15px;
+
+    color: #ffd0e0;
+
+    animation: appear 1s;
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- BACKGROUND -->
+
+<div class="background" id="background"></div>
+
+
+<!-- START SCREEN -->
+
+<div class="start-screen" id="startScreen">
+
+    <div class="start-box">
+
+        <div class="start-heart">
+            💗
+        </div>
+
+        <h1>
+            มีบางอย่างอยากให้เธอเห็น...
+        </h1>
+
+        <button
+            class="start-btn"
+            onclick="startLove()">
+
+            เปิดดูสิ 💕
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- MAIN -->
+
+<div class="container">
+
+    <div class="card">
+
+        <div class="big-heart">
+            ❤️
+        </div>
+
+        <h1>
+            ถึงเธอคนพิเศษ 💗
+        </h1>
+
+        <p id="typing"></p>
+
+
+        <div class="buttons">
+
+            <button
+                class="yes"
+                onclick="sayYes()">
+
+                รักเหมือนกัน ❤️
+            </button>
+
+
+            <button
+                class="no"
+                id="noBtn"
+                onmouseover="runAway()">
+
+                ไม่รัก 😝
+            </button>
+
+        </div>
+
+
+        <!-- LOVE MESSAGE -->
+
+        <div id="loveMessage">
+
+            <h2>
+                เย้!! 🥰❤️
+            </h2>
+
+            <div class="love-text">
+
+                เค้ารักเธอมากที่สุดเลยนะ 💗<br>
+
+                ขอบคุณที่เข้ามาเป็นความสุข<br>
+
+                และเป็นรอยยิ้มของเค้าในทุก ๆ วัน 🥺
+
+            </div>
+
+
+            <!-- COUNTER -->
+
+            <div class="counter">
+
+                <div class="counter-box">
+
+                    <span id="days">
+                        0
+                    </span>
+
+                    <small>
+                        วัน
+                    </small>
+
+                </div>
+
+
+                <div class="counter-box">
+
+                    <span id="hours">
+                        0
+                    </span>
+
+                    <small>
+                        ชั่วโมง
+                    </small>
+
+                </div>
+
+
+                <div class="counter-box">
+
+                    <span id="minutes">
+                        0
+                    </span>
+
+                    <small>
+                        นาที
+                    </small>
+
+                </div>
+
+
+                <div class="counter-box">
+
+                    <span id="seconds">
+                        0
+                    </span>
+
+                    <small>
+                        วินาที
+                    </small>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- SECRET -->
+
+        <div
+            class="secret"
+            onclick="secret()">
+
+            🤫 มีความลับอีกอย่าง...
+        </div>
+
+
+        <div id="secretMessage">
+
+            จริง ๆ แล้วเค้าไม่ได้อยากได้อะไรเลย<br>
+
+            แค่มีเธออยู่ข้าง ๆ ก็พอแล้ว ❤️
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================
+   CREATE STARS
+========================= */
+
+for(let i = 0; i < 100; i++){
+
+    const star = document.createElement("div");
+
+    star.className = "star";
+
+    star.style.left =
+        Math.random() * 100 + "%";
+
+    star.style.top =
+        Math.random() * 100 + "%";
+
+    star.style.animationDelay =
+        Math.random() * 2 + "s";
+
+    document
+        .getElementById("background")
+        .appendChild(star);
+}
+
+
+/* =========================
+   START
+========================= */
+
+function startLove(){
+
+    const screen =
+        document.getElementById("startScreen");
+
+    screen.style.opacity = "0";
+
+    setTimeout(() => {
+
+        screen.style.display = "none";
+
+        startTyping();
+
+        createHearts();
+
+    },1000);
+
+}
+
+
+/* =========================
+   TYPING EFFECT
+========================= */
+
+const text =
+"เค้าอยากบอกเธอมานานแล้ว... 🥺\n\nเธอคือคนที่ทำให้วันธรรมดา ๆ ของเค้ากลายเป็นวันที่มีความหมาย ❤️";
+
+let index = 0;
+
+function startTyping(){
+
+    const element =
+        document.getElementById("typing");
+
+    function type(){
+
+        if(index < text.length){
+
+            element.innerHTML +=
+                text[index] === "\n"
+                ? "<br>"
+                : text[index];
+
+            index++;
+
+            setTimeout(type,45);
+
+        }
+
+    }
+
+    type();
+
+}
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+function createHearts(){
+
+    setInterval(() => {
+
+        const heart =
+            document.createElement("div");
+
+        heart.className =
+            "floating-heart";
+
+        const emojis = [
+            "❤️",
+            "💗",
+            "💕",
+            "💖",
+            "💘",
+            "💝"
+        ];
+
+        heart.innerHTML =
+            emojis[
+                Math.floor(
+                    Math.random() * emojis.length
+                )
+            ];
+
+        heart.style.left =
+            Math.random() * 100 + "vw";
+
+        heart.style.fontSize =
+            15 + Math.random() * 30 + "px";
+
+        heart.style.animationDuration =
+            4 + Math.random() * 5 + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+
+            heart.remove();
+
+        },9000);
+
+    },500);
+
+}
+
+
+/* =========================
+   YES BUTTON
+========================= */
+
+function sayYes(){
+
+    document
+        .getElementById("loveMessage")
+        .style.display = "block";
+
+    explosion();
+
+    for(let i = 0; i < 50; i++){
+
+        setTimeout(() => {
+
+            createExplosionHeart();
+
+        }, i * 30);
+
+    }
+
+}
+
+
+/* =========================
+   HEART EXPLOSION
+========================= */
+
+function explosion(){
+
+    const emojis = [
+        "❤️",
+        "💗",
+        "💕",
+        "💖",
+        "💘",
+        "🥰"
+    ];
+
+    for(let i = 0; i < 40; i++){
+
+        const e =
+            document.createElement("div");
+
+        e.className =
+            "explosion";
+
+        e.innerHTML =
+            emojis[
+                Math.floor(
+                    Math.random() * emojis.length
+                )
+            ];
+
+        e.style.left = "50%";
+
+        e.style.top = "50%";
+
+        e.style.setProperty(
+            "--x",
+            (Math.random()*600-300)+"px"
+        );
+
+        e.style.setProperty(
+            "--y",
+            (Math.random()*600-300)+"px"
+        );
+
+        document.body.appendChild(e);
+
+        setTimeout(() => {
+
+            e.remove();
+
+        },1000);
+
+    }
+
+}
+
+
+function createExplosionHeart(){
+
+    const heart =
+        document.createElement("div");
+
+    heart.className =
+        "floating-heart";
+
+    heart.innerHTML = "❤️";
+
+    heart.style.left =
+        Math.random()*100+"vw";
+
+    heart.style.fontSize =
+        20+Math.random()*30+"px";
+
+    heart.style.animationDuration =
+        3+Math.random()*3+"s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+
+        heart.remove();
+
+    },6000);
+
+}
+
+
+/* =========================
+   NO BUTTON RUNS AWAY
+========================= */
+
+function runAway(){
+
+    const button =
+        document.getElementById("noBtn");
+
+    const maxX =
+        window.innerWidth - button.offsetWidth - 20;
+
+    const maxY =
+        window.innerHeight - button.offsetHeight - 20;
+
+    button.style.position = "fixed";
+
+    button.style.left =
+        Math.random() * maxX + "px";
+
+    button.style.top =
+        Math.random() * maxY + "px";
+
+}
+
+
+/* =========================
+   SECRET
+========================= */
+
+function secret(){
+
+    const message =
+        document.getElementById("secretMessage");
+
+    message.style.display = "block";
+
+    explosion();
+
+}
+
+
+/* =========================
+   LOVE COUNTER
+========================= */
+
+/*
+   เปลี่ยนวันที่ตรงนี้ได้เลย
+   เป็นวันที่เริ่มคบกัน
+*/
+
+const startDate =
+    new Date("2026-07-23T00:00:00");
+
+
+function updateCounter(){
+
+    const now =
+        new Date();
+
+    const difference =
+        now - startDate;
+
+    const days =
+        Math.floor(
+            difference / (1000*60*60*24)
+        );
+
+    const hours =
+        Math.floor(
+            difference / (1000*60*60)
+        ) % 24;
+
+    const minutes =
+        Math.floor(
+            difference / (1000*60)
+        ) % 60;
+
+    const seconds =
+        Math.floor(
+            difference / 1000
+        ) % 60;
+
+
+    document.getElementById("days")
+        .innerText = days;
+
+    document.getElementById("hours")
+        .innerText = hours;
+
+    document.getElementById("minutes")
+        .innerText = minutes;
+
+    document.getElementById("seconds")
+        .innerText = seconds;
+
+}
+
+
+setInterval(updateCounter,1000);
+
+updateCounter();
+
+
+/* =========================
+   CLICK EFFECT
+========================= */
+
+document.addEventListener(
+    "click",
+    function(e){
+
+        const heart =
+            document.createElement("div");
+
+        heart.innerHTML = "💗";
+
+        heart.style.position = "fixed";
+
+        heart.style.left =
+            e.clientX + "px";
+
+        heart.style.top =
+            e.clientY + "px";
+
+        heart.style.pointerEvents =
+            "none";
+
+        heart.style.fontSize = "25px";
+
+        heart.style.zIndex = "999";
+
+        heart.style.transition =
+            "1s";
+
+        document.body.appendChild(heart);
+
+
+        setTimeout(() => {
+
+            heart.style.transform =
+                "translateY(-80px) scale(1.5)";
+
+            heart.style.opacity = "0";
+
+        },10);
+
+
+        setTimeout(() => {
+
+            heart.remove();
+
+        },1000);
+
+    }
+);
+
+</script>
+
+</body>
+</html>
